@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <title>E-services Template</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">
+                <h:graphicImage value="/images/eservices_logo.jpg" style="background: rgba(238, 240, 241, 0.1); height: 30%; width: 100%"/>  
+                <nav class="navbar navbar-inverse ">
+                    <div class="container-fluid">
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <h:form>
+                                <ul class="nav navbar-nav nav-pills">                             
+                                    <li><h:commandLink value="Home" action="std_welcome.xhtml" style="font-size: 16px"></h:commandLink></li>
+                                </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a style="font-size: 16px"> Hello, #{index.std_login.std_name}</a></li>
+                                    <li><h:commandLink value="Logout" action="std_login.xhtml" style="font-size: 16px"></h:commandLink></li>
+                                </ul>
+                            </h:form>
+                        </div>
+                    </div>
+                </nav>
+            </ui:insert>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+        <div id="bottom" align="center" class="nav navbar-fixed-bottom" style=" color: #ffffff;background-color: #033c73; height: 50px;font-size: 18px;  padding-top: 15px">
+            <ui:insert name="bottom">
+                &copy;E-services UHCL. All Rights Reserved.   
+            </ui:insert>
+        </div>
+
+
+    </h:body>
+
+</html>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Faculty Schedule</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./e-services_template.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <center>
+                        <!--displaying details-->
+                        <ul class="list-group" style="width:30%">
+                            <li class="list-group-item">ID:&nbsp;#{index.displayCourse.crs_id}</li>
+                            <li class="list-group-item">Title:&nbsp;#{index.displayCourse.crs_title}</li>
+                            <li class="list-group-item">Time:&nbsp;#{index.displayCourse.crs_time}</li>
+                            <li class="list-group-item">Class Capacity:&nbsp;#{index.displayCourse.crs_capacity}</li>
+                            <li class="list-group-item">Number of Students enrolled:&nbsp;#{index.displayCourse.crs_students}</li>
+                            <li class="list-group-item">Status:&nbsp;#{index.displayCourse.crs_status}</li>
+                            <li class="list-group-item">Fees:&nbsp;$#{index.displayCourse.crs_fees}</li>
+                        </ul>
+                        <br/>
+                        <br/>
+                        <!--if students enrolled-->
+                        <c:if test="#{!index.stu_name.isEmpty()}">
+                            <h:dataTable value="#{index.stu_name}" var="y" class="table table-striped" style="width:30%;">
+                                <h:column>
+                                    <f:facet name="header"><span style="font-weight: bolder; font-size: 14pt;">Students Enrolled</span></f:facet>  
+                                        #{y.std_name}
+                                </h:column>
+                            </h:dataTable>
+                        </c:if>
+
+                        <!--if no students enrolled-->
+                        <c:if test="#{index.stu_name.isEmpty()}">
+                            <p style="font-size: 13pt; font-weight: bold">There are no students enrolled currently!</p>
+                        </c:if>
+                        <br/>
+                        <h:commandButton action="fac_welcome.xhtml" value="Go Back" class="btn btn-default btn-sm" style="width: 10%;"></h:commandButton>
+                    </center>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
